@@ -14,7 +14,7 @@ const typedefs = gql`
 
   type Query {
     me: User
-    user: User
+    user(email: String!): User
   }
 
   type mutation{
