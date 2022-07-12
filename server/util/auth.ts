@@ -10,12 +10,12 @@ type User = {
   _id: string;
 };
 
-// // extending json web tokens to have our types on them
-// declare module 'jsonwebtoken' {
-//   export interface userDataJwtPayload extends jwt.JwtPayload {
-//     data: User;
-//   }
-// }
+// extending json web tokens to have our types on them
+declare module 'jsonwebtoken' {
+  export interface userDataJwtPayload extends jwt.JwtPayload {
+    data: User;
+  }
+}
 
 // helper function to verify data
 export const userDataJwtPayload = (jwtToken: string): User | undefined => {
