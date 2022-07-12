@@ -1,0 +1,20 @@
+{
+  "name": "full-stack-template",
+  "version": "1.0.0",
+  "description": "this is my template repository for making MERN full stack applications with typescript!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jvbridge/full-stack-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jvbridge/full-stack-template/issues"
+  },
+  "homepage": "https://github.com/jvbridge/full-stack-template#readme"
+}
