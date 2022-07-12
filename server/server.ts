@@ -1,6 +1,9 @@
 import * as express from 'express';
 import * as path from 'path';
 import { ApolloServer } from 'apollo-server-express';
+import typeDefs from './schema/typeDefs';
+import resolvers from './schema/resolvers';
+import { authMiddleware } from './util/auth';
 
 // build our app to export
 export const app = express();
@@ -16,4 +19,8 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-export const server = new ApolloServer({});
+export const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: authMiddleware,
+});
