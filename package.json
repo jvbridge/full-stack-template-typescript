@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jvbridge/full-stack-template/issues"
   },
-  "homepage": "https://github.com/jvbridge/full-stack-template#readme"
+  "homepage": "https://github.com/jvbridge/full-stack-template#readme",
+  "devDependencies": {
+    "concurrently": "^7.2.2"
+  }
 }
