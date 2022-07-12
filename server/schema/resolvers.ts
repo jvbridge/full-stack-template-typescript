@@ -20,6 +20,23 @@ const resolvers = {
     adduser: async (parent: any, args: { email: string; password: string }) => {
       return User.create({ args });
     },
+    login: async (
+      parent: any,
+      { email, password }: { email: string; password: string }
+    ) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError('Incorrect email or password');
+      }
+      const correctPassword = await user.isCorrectPassword(password);
+
+      if (!correctPassword) {
+        throw new AuthenticationError('Incorrect email or password');
+      }
+      const token = auth.signToken(user);
+      return { token, user };
+    },
   },
 };
 
