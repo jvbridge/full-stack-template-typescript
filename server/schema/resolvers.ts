@@ -37,6 +37,23 @@ const resolvers = {
       const token = auth.signToken(user);
       return { token, user };
     },
+    deleteUser: async (
+      parent: any,
+      { email, password }: { email: string; password: string }
+    ) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError('Incorrect email or password');
+      }
+      const correctPassword = await user.isCorrectPassword(password);
+
+      if (!correctPassword) {
+        throw new AuthenticationError('Incorrect email or password');
+      }
+
+      return User.deleteOne({ _id: user._id });
+    },
   },
 };
 
