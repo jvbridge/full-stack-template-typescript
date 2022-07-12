@@ -2,7 +2,6 @@
   "name": "full-stack-template",
   "version": "1.0.0",
   "description": "this is my template repository for making MERN full stack applications with typescript!",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
