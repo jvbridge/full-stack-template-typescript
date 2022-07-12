@@ -1,6 +1,6 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-express';
 import User from '../models';
-import auth from '../util';
+import { signToken } from '../util/auth';
 
 const resolvers = {
   Query: {
@@ -34,7 +34,7 @@ const resolvers = {
       if (!correctPassword) {
         throw new AuthenticationError('Incorrect email or password');
       }
-      const token = auth.signToken(user);
+      const token = signToken(user);
       return { token, user };
     },
     deleteUser: async (
