@@ -3,7 +3,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "strict": true,
-    "outDir": "../build/server",
+    "outDir": "../build",
     "sourceMap": true,
     "removeComments": true,
     "experimentalDecorators": true,
@@ -14,6 +14,6 @@
     "typeRoots": ["node_modules/@types"],
     "skipLibCheck": true
   },
-  "include": ["../src/server/**/*.ts"],
-  "exclude": ["../src/server/**/*.test.ts"]
+  "include": ["../**/*.ts"],
+  "exclude": ["../**/*.test.ts"]
 }
