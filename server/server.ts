@@ -1,4 +1,4 @@
-import * as express from 'express';
+import express from 'express';
 import * as path from 'path';
 import { ApolloServer } from 'apollo-server-express';
 import typeDefs from './schema/typeDefs';
