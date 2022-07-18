@@ -17,9 +17,9 @@ const typedefs = gql`
     user(email: String!): User
   }
 
-  type mutation{
-    adduser(email: String!, password: String!): Auth
-    deleteUser:(email: String!, password:String!): ID
+  type Mutation {
+    addUser(email: String!, password: String!): Auth
+    deleteUser(email: String!, password: String!): ID
     login(email: String!, password: String!): Auth
   }
 `;
