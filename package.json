@@ -5,6 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build-server && npm run build-client",
+    "postinstall": "cd server && npm install && cd ../client && npm install",
     "build-server": "cd server && npm run build",
     "build-client": "cd client && npm run build",
     "start": "node --es-module-specifier-resolution=node ./server/build/server.js",
