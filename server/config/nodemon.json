@@ -2,5 +2,5 @@
   "watch": ["./*"],
   "ext": "ts",
   "ignore": ["build"],
-  "exec": "ts-node start.ts dev"
+  "exec": "ts-node server.ts dev"
 }
