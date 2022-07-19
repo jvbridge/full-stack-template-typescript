@@ -11,14 +11,17 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     user: async (parent: any, args: { email: string }) => {
-      const user = await User.find({ email: args.email });
+      const user = await User.findOne({ email: args.email });
       if (user) return user;
       throw new UserInputError('could not find user with that email');
     },
   },
   Mutation: {
     addUser: async (parent: any, args: { email: string; password: string }) => {
-      return User.create({ args });
+      const user = await User.create({ ...args });
+      const token = signToken(user);
+      return { token, user };
+
     },
     login: async (
       parent: any,
@@ -47,7 +50,8 @@ const resolvers = {
       if (!correctPassword) {
         throw new AuthenticationError('Incorrect email or password');
       }
-      return User.deleteOne({ _id: user._id });
+      const delUser = await user.delete();
+      return delUser._id;
     },
   },
 };
