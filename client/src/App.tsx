@@ -8,7 +8,7 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 // authorization
-import auth from './Nav/util/auth';
+import auth from './util/auth';
 
 // CSS
 import './App.css';
@@ -36,7 +36,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>{auth.loggedIn()}</Router>
+      <Router>
+        {auth.loggedIn() ? <div>logged in!</div> : <div>not logged in!</div>}
+      </Router>
     </ApolloProvider>
   );
 }
